@@ -12,7 +12,6 @@ const port = process.env.PORT || 3000;
 const app = next({ dev });
 const handler = app.getRequestHandler();
 const sentiment = new Sentiment();
-
 const pusher = new Pusher({
   appId: process.env.PUSHER_APP_ID,
   key: process.env.PUSHER_APP_KEY,
@@ -34,7 +33,7 @@ app
       return handler(req, res);
     });
 
-    server.listen((port, error) => {
+    server.listen(port, error => {
       if (error) throw error;
       console.log(`Server listening on ${port}`);
     });
